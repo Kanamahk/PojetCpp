@@ -1,0 +1,15 @@
+tailleAireDeJeu		= 12
+nbMaxTour			= 100
+orParTour			= 8
+orPremierTour		= 4
+prixFantassin		= 10
+prixArcher			= 12 
+prixCatapulte		= 20
+pvFantassin			= 10
+pvArcher			= 8 
+pvCatapulte			= 12
+paFantassin			= 4
+paArcher			= 3 
+paCatapulte			= 6
+
+

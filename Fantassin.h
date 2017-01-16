@@ -9,10 +9,9 @@ class Fantassin : virtual public Unite
     public:
         Fantassin(Case* position_, int faction_);
         virtual ~Fantassin();
-        /*int action1();
+        int action1();
         int action2();
         int action3();
-        void setAAttaque(bool b);*/
     protected:
     private:
         bool aAttaque;

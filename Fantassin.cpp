@@ -11,7 +11,7 @@ Fantassin::~Fantassin()
     //dtor
 }
 
-/*
+
 int Fantassin::action1()
 {
     int issue = attaquer();
@@ -43,4 +43,4 @@ int Fantassin::action3()
         else return issue;
     }
 }
-*/
+

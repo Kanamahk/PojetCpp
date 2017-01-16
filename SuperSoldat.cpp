@@ -10,7 +10,7 @@ SuperSoldat::~SuperSoldat()
     //dtor
 }
 
-/*
+
 int SuperSoldat::action1()
 {
     return attaquer();
@@ -26,5 +26,3 @@ int SuperSoldat::action3()
 {
     return attaquer();
 }
-
-*/

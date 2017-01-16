@@ -10,11 +10,12 @@ class Catapulte : virtual public Unite
     public:
         Catapulte(Case* position_, int faction_);
         virtual ~Catapulte();
-        /*int action1();
+        int action1();
         int action2();
-        int action3();*/
+        int action3();
     protected:
     private:
+        bool aAttaque;
 };
 
 #endif // CATAPULTE_H

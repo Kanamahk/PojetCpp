@@ -11,7 +11,7 @@ Archer::~Archer()
     //dtor
 }
 
-/*
+
 int Archer::action1()
 {
     return attaquer();
@@ -25,4 +25,4 @@ int Archer::action2()
 int Archer::action3()
 {
     return -1;
-}*/
+}

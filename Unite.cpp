@@ -1,9 +1,8 @@
 #include "Unite.h"
 
-Unite::Unite(Case *position_, int prix_, int portee_, int faction_, int pa_, int pv_) : Entite(/*pv_, faction_*/), position(position_),  portee(portee_), pa(pa_), recompense(prix_/2)
+Unite::Unite(Case *position_, int prix_, int portee_, int faction_, int pa_, int pv_) : Entite(pv_, faction_), position(position_),  portee(portee_), pa(pa_), recompense(prix_/2)
 {
-    pv = pv_;
-    faction = faction_;
+
 }
 
 Unite::~Unite()

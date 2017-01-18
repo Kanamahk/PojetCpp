@@ -10,6 +10,7 @@ class Chateau : virtual public Case, virtual public Entite
         Chateau(int pv_, int faction_);
         virtual ~Chateau();
     protected:
+        int recevoirDegats(int degats);
     private:
 };
 

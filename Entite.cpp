@@ -7,7 +7,7 @@
 
 #include "Entite.h"
 
-Entite::Entite(/*int pv_, int faction_*/) /*: pv(pv_), faction(faction_)*/
+Entite::Entite(int pv_, int faction_) : pv(pv_), faction(faction_)
 {
 }
 

@@ -15,30 +15,34 @@ Unite::~Unite()
 */
 bool Unite::deplacer()
 {
-    if(faction == 1)
+   /* if(faction == CaracteristiqueJeu::FACTIONA)
+    {*/
+	Case * suivant = position->getSuivant(faction);
+
+	if(suivant->estFranchissable() && suivant->estVide())
+	{
+		position->setSonUnite(nullptr);
+		position = suivant;
+		position->setSonUnite(this);
+		return true;
+	}
+	else
+		return false;
+   /* }*/
+    /*else if(faction == CaracteristiqueJeu::FACTIONB)
     {
-        if(position->getSuivant()->estFranchissable && position->getSuivant()->estVide())
+        if(position->getPrecedent()->estFranchissable && position->getPrecedent()->estVide())
         {
-            position->setSonUnite(null);
-            position = position->getSuivant();
-            position->setSonUnite(this);
-            return true;
-        }
-        else
-            return false;
-    }
-    else if(faction == -1)
-    {
-        if(position->getPrecedent()->estFranchissable && position->getPrecedent()->estVide()
-        {
-            position->setSonUnite(null);
+            position->setSonUnite(nullptr);
             position = position->getPrecedent();
             position->setSonUnite(this);
             return true;
         }
         else
             return false;
-    }
+    }*/
+
+    return false;
 }
 
 
@@ -51,36 +55,40 @@ int Unite::attaquer()
     int i, issue;
     Case* cible;
 
-    if(faction == 1)
-        cible = position->getSuivant();
+
+    cible = position->getSuivant(faction);
+    /*if(faction == 1)
+        cible = position->getSuivant(faction);
     else if(faction == -1)
-        cible = position->getPrecedent();
+        cible = position->getPrecedent();*/
 
     //On se positionne sur l'entitée à toucher, ou à portée max si on n'en trouve pas.
-    for(i=1; i<portee && !cible->estEntite && cible->estVide(); i++)
+    for(i=1; i<portee && !cible->estEntite() && cible->estVide(); i++)
     {
-        if(faction == 1)
+        /*if(faction == 1)
             cible = cible->getSuivant();
         else if(faction == -1)
-            cible = cible->getPrecedent();
-        if(cible==null) //Si on arrive hors de la map, on retourne -1 (mais ça ne devrait pas arriver)
+            cible = cible->getPrecedent();*/
+    	cible = cible->getSuivant(faction);
+        if(cible==nullptr) //Si on arrive hors de la map, on retourne -1 (mais ça ne devrait pas arriver)
             return -1;
     }
 
-    else if(!cible->estVide())
+    if(!cible->estVide())
     {
-        issue = cible->getSonUnite()->recevoirDegats(this.pa);
+        issue = cible->getSonUnite()->recevoirDegats(this->pa);
         if(issue>0)
         {
-            cible->setSonUnite(null);
+            cible->setSonUnite(nullptr);
         }
         return issue;
     }
-    else if(cible->estEntite)
+    else if(cible->estEntite())
     {
-        return cible->recevoirDegats(this.pa);
+        return cible->recevoirDegats(this->pa);
     }
-    else return -1;
+    else
+    	return -1;
 
 }
 
@@ -89,7 +97,7 @@ int Unite::recevoirDegats(int degats)
     pv -= degats;
     if(pv<=0)
     {
-        position->setSonUnite(null);
+        position->setSonUnite(nullptr);
         return recompense;
     }
     else

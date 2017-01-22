@@ -2,6 +2,7 @@
 #define UNITE_H
 
 #include "Entite.h"
+#include "Case.h"
 
 class Case;
 class Unite : virtual public Entite

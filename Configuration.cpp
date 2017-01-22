@@ -33,7 +33,7 @@ bool Configuration::Load(const string& file)
         // filter out comments
         if (!line.empty())
         {
-            int pos = line.find('#');
+            unsigned int pos = line.find('#');
 
             if (pos != string::npos)
             {
@@ -44,7 +44,7 @@ bool Configuration::Load(const string& file)
         // split line into key and value
         if (!line.empty())
         {
-            int pos = line.find('=');
+        	unsigned int pos = line.find('=');
 
             if (pos != string::npos)
             {
@@ -144,7 +144,7 @@ bool Configuration::Get(const string& key, bool& value) const
 
 string Configuration::Trim(const string& str)
 {
-    int first = str.find_first_not_of(" \t");
+	unsigned int first = str.find_first_not_of(" \t");
 
     if (first != string::npos)
     {

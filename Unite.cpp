@@ -62,7 +62,7 @@ int Unite::attaquer()
         cible = position->getPrecedent();*/
 
     //On se positionne sur l'entitée à toucher, ou à portée max si on n'en trouve pas.
-    for(i=1; i<portee && !cible->estEntite() && cible->estVide(); i++)
+    for(i=1; i<portee && !cible->estEntite() && (cible->estVide() || cible->getSonUnite()->faction == faction); i++)
     {
         /*if(faction == 1)
             cible = cible->getSuivant();
@@ -73,7 +73,7 @@ int Unite::attaquer()
             return -1;
     }
 
-    if(!cible->estVide())
+    if(!cible->estVide() && cible->getSonUnite()->faction != faction)
     {
         issue = cible->getSonUnite()->recevoirDegats(this->pa);
         if(issue>0)

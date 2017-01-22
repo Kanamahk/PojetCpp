@@ -32,7 +32,7 @@ int Catapulte::attaquer()
     }*/
 
     //On se positionne sur l'entitée à toucher, ou à portée max si on n'en trouve pas.
-    for(i=3; i<portee && !cible1->estEntite() && cible1->estVide(); i++)
+    for(i=3; i<portee && !cible1->estEntite() && (cible1->estVide() || cible1->getSonUnite()->faction == faction); i++)
     {
         if(cible2->getSuivant(faction)!=nullptr)
         {
@@ -51,9 +51,10 @@ int Catapulte::attaquer()
         }*/
     }
 
-    if(cible1->estVide() && !cible1->estEntite() && cible2->estVide() && !cible2->estEntite())
-        return -1; //Si on n'a personne sur qui tirer, on ne tire pas.
+    if((cible1->estVide() || cible1->getSonUnite()->faction == faction) && !cible1->estEntite() && (cible2->estVide() || cible2->getSonUnite()->faction == faction) && !cible2->estEntite())
+        return -1; //Si on n'a aucun ennemi sur qui tirer, on ne tire pas.
 
+    //On tir même si un allié s'y trouve (dans ce cas on touchera un ennemi dans la case suivante, sinon on aurait déjà return)
     if(!cible1->estVide())
     {
         issue1 = cible1->getSonUnite()->recevoirDegats(this->pa);
@@ -68,6 +69,7 @@ int Catapulte::attaquer()
         issue1 = cible1->recevoirDegats(this->pa);
     }
 
+    //On tir même si un allié si trouve (dans ce cas on a touché un ennemi dans la case précédente, sinon on aurait déjà return)
     if(!cible2->estVide())
     {
         issue2 = cible2->getSonUnite()->recevoirDegats(this->pa);

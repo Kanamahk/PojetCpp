@@ -6,8 +6,10 @@
 class Terrain : virtual public Case
 {
     public:
-        Terrain();
+        Terrain(Case* suivant, Case* precedent);
         virtual ~Terrain();
+        bool estFranchissable();
+        bool estEntite();
     protected:
     private:
 };

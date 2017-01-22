@@ -1,6 +1,6 @@
 #include "Terrain.h"
 
-Terrain::Terrain() : Case(false)
+Terrain::Terrain(Case* suivant, Case* precedent) : Case(Case* suivant, Case* precedent)
 {
     //ctor
 }
@@ -8,4 +8,15 @@ Terrain::Terrain() : Case(false)
 Terrain::~Terrain()
 {
     //dtor
+}
+
+
+bool Terrain::estFranchissable()
+{
+	return true;
+}
+
+bool Terrain::estEntite()
+{
+	return false;
 }

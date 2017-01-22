@@ -1,8 +1,8 @@
 #include "Case.h"
 
-Case::Case(bool estEntite_) : sonUnite(nullptr), suivant(nullptr), precedent(nullptr), estEntite(estEntite_)
+Case::Case(Case* suivant_, Case* precedent_) : sonUnite(nullptr), suivant(suivant_), precedent(precedent_)/*, estEntite(estEntite_)*/
 {
-
+	precedent->setSuivant(this);
 }
 
 Case::~Case()
@@ -10,23 +10,45 @@ Case::~Case()
     //dtor
 }
 
+void Case::setSuivant(Case * p)
+{
+	suivant = p;
+}
 
 bool Case::estVide()
 {
 	return (sonUnite != nullptr);
 }
 
-Case* Case::getSuivant()
+Case* Case::getSuivant(int faction)
 {
-	return suivant;
+	if(faction == CaracteristiqueJeu::FACTIONA)
+		return suivant;
+	if(faction == CaracteristiqueJeu::FACTIONB)
+		return precedent;
+	return nullptr;
 }
 
-Case* Case::getPrecedent()
+Case* Case::getPrecedent(int faction)
 {
-	return precedent;
+	if(faction == CaracteristiqueJeu::FACTIONA)
+		return precedent;
+	if(faction == CaracteristiqueJeu::FACTIONB)
+		return suivant;
+	return nullptr;
+}
+
+void Case::setSonUnite(Unite * u)
+{
+	sonUnite = u;
+}
+
+Unite * Case::getSonUnite()
+{
+	return sonUnite;
 }
 
 int Case::recevoirDegats(int degats)
 {
-	return false;
+	return 0;
 }

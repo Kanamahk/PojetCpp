@@ -96,4 +96,8 @@ int Unite::recevoirDegats(int degats)
 	}
 }
 
+void Unite::promouvoir()
+{
+
+}
 

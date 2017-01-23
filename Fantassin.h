@@ -5,6 +5,7 @@
 #include "Unite.h"
 #include "Joueur.h"
 #include "Case.h"
+#include "SuperSoldat.h"
 
 class Joueur;
 class Case;
@@ -17,6 +18,8 @@ class Fantassin : virtual public Unite
         int action2();
         int action3();
         string str();
+
+        void promouvoir();
     protected:
     private:
         bool aAttaque;

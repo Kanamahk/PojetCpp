@@ -49,3 +49,10 @@ string Fantassin::str()
 	return "f";
 }
 
+void Fantassin::promouvoir()
+{
+	SuperSoldat *s = new SuperSoldat(this->position, this->monMaitre, this->faction);
+	this->position->setSonUnite(s);
+	this->monMaitre->ajouter(s);
+	delete this;
+}

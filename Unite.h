@@ -21,6 +21,7 @@ class Unite : virtual public Entite
         virtual int action3() = 0;
         int recevoirDegats(int degats);
         virtual string str() = 0;
+        virtual void promouvoir();
     protected :
         Case* position;
         Joueur *monMaitre;

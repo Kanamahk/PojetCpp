@@ -27,6 +27,7 @@ void Joueur::actions1()
 		if(recompense < 0)
 		{
 			po += recompense;
+			mesUnites.at(i)->promouvoir();
 		}
 
 	}
@@ -39,7 +40,10 @@ void Joueur::actions2()
 	{
 		mesUnites.at(i)->action2();
 		if(recompense < 0)
+		{
 			po += recompense;
+			mesUnites.at(i)->promouvoir();
+		}
 	}
 }
 
@@ -50,7 +54,10 @@ void Joueur::actions3()
 	{
 		mesUnites.at(i)->action3();
 		if(recompense < 0)
+		{
 			po += recompense;
+			mesUnites.at(i)->promouvoir();
+		}
 	}
 }
 
@@ -67,4 +74,9 @@ void Joueur::ajouterPo(int po_)
 int Joueur::getFaction()
 {
 	return faction;
+}
+
+void Joueur::ajouter(Unite* u)
+{
+	mesUnites.push_back(u);
 }

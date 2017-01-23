@@ -27,6 +27,7 @@ class Joueur
         bool aPerdu();
         void ajouterPo(int po_);
         int getFaction();
+        void ajouter(Unite* u);
     protected:
         int faction;
         int po;

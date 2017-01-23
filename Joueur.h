@@ -7,6 +7,7 @@
 //#include "Chateau.h"
 #include "CaracteristiquesJeu.h"
 #include "Unite.h"
+#include "Ecriture.h"
 
 using namespace std;
 

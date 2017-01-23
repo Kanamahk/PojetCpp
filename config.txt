@@ -1,15 +1,18 @@
-nomFichier			= deroulement_partie.txt
-tailleAireDeJeu		= 12
-nbMaxTour			= 100
-orParTour			= 8
-orPremierTour		= 4
-prixFantassin		= 10
-prixArcher			= 12 
-prixCatapulte		= 20
-pvChateau			= 100
-pvFantassin			= 10
-pvArcher			= 8 
-pvCatapulte			= 12
-paFantassin			= 4
-paArcher			= 3 
-paCatapulte			= 6
+#ceci est le fichier de config
+
+
+nomFichier			= deroulement_partie.txt	# le nom du fichier dans lequel figurera l'enregistrment de la partie
+tailleAireDeJeu		= 12 						# un entier entre 5 et 50 sinon 0
+nbMaxTour			= 100						# un entier entre 0 et 10000 sinon 0
+orParTour			= 8							# un entier entre 0 et 100 sinon 0
+orPremierTour		= 4							# un entier entre -1 et 100 sinon 0
+prixFantassin		= 10						# un entier entre 0 et 50 sinon 0
+prixArcher			= 12						# un entier entre 0 et 70 sinon 0
+prixCatapulte		= 20						# un entier entre 0 et 100 sinon 0
+pvChateau			= 100						# un entier entre 0 et 500 sinon 0
+pvFantassin			= 10						# un entier entre 0 et 50 sinon 0
+pvArcher			= 8 						# un entier entre 0 et 40 sinon 0
+pvCatapulte			= 12						# un entier entre 0 et 70 sinon 0
+paFantassin			= 4							# un entier entre 0 et 20 sinon 0
+paArcher			= 3 						# un entier entre 0 et 15 sinon 0
+paCatapulte			= 6							# un entier entre 0 et 30 sinon 0

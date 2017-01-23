@@ -12,30 +12,25 @@ using namespace std;
 #include "CaracteristiquesJeu.h"
 #include "Ecriture.h"
 #include <sstream>
+#include "Carte.h"
+#include "Jeu.h"
 
 int main()
 {
 	CaracteristiqueJeu cj;
-	//cj.load("./src/config.txt");
-
-	//cout << CaracteristiqueJeu::FACTIONB << endl;
-
+	cj.load("./src/config.txt");
 	Ecriture e;
-
 	e.vider();
 
-	stringstream ss;
-	ss << CaracteristiqueJeu::pvChateau();
+	Jeu j;
 
-	string res;
+	bool gagnant = false;
 
-	ss >> res;
-
-	if(!e.ecrire(res))
+	do
 	{
-		cout << "pas marché" << endl;
-	}
+		gagnant = j.tourDeJeu();
+		j.tour ++;
+		e.ecrire("\n\n");
+	}while(!gagnant || j.tour > cj.nbMaxTour());
 
-
-	//e.ecrire("test 2");
 }

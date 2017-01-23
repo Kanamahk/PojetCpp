@@ -9,15 +9,20 @@
 #define CARTE_H_
 
 #include "Case.h"
+#include "Chateau.h"
+#include "Terrain.h"
 
 class Carte
 {
 public :
 	Carte();
 	~Carte();
+	string str(int faction);
 protected :
 private :
-	Case *premier, *dernier;
+	Chateau *premier, *dernier;
+
+	friend class Jeu;
 };
 
 

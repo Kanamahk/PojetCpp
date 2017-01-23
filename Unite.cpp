@@ -1,21 +1,27 @@
 #include "Unite.h"
 
-Unite::Unite(Case *position_, int prix_, int portee_, int faction_, int pa_, int pv_) : Entite(pv_, faction_), position(position_),  portee(portee_), pa(pa_), recompense(prix_/2)
+Unite::Unite(Case *position_, Joueur* monMaitre_, int prix_, int portee_, int faction_, int pa_, int pv_) : Entite(/*pv_, faction_*/), position(position_), monMaitre(monMaitre_), portee(portee_), pa(pa_), recompense(prix_/2)
 {
-
+    pv = pv_;
+    faction = faction_;
 }
 
 Unite::~Unite()
 {
-
+	for(unsigned int i=0; i< monMaitre->mesUnites.size(); i++)
+	{
+		if(monMaitre->mesUnites.at(i) == this)
+		{
+			monMaitre->mesUnites.erase(monMaitre->mesUnites.begin() + i);
+			continue;
+		}
+	}
 }
 
 /** Déplace l'unité sur la case adjacente, le sens dépendant de sa faction.
 */
 bool Unite::deplacer()
 {
-   /* if(faction == CaracteristiqueJeu::FACTIONA)
-    {*/
 	Case * suivant = position->getSuivant(faction);
 
 	if(suivant->estFranchissable() && suivant->estVide())
@@ -25,21 +31,6 @@ bool Unite::deplacer()
 		position->setSonUnite(this);
 		return true;
 	}
-	else
-		return false;
-   /* }*/
-    /*else if(faction == CaracteristiqueJeu::FACTIONB)
-    {
-        if(position->getPrecedent()->estFranchissable && position->getPrecedent()->estVide())
-        {
-            position->setSonUnite(nullptr);
-            position = position->getPrecedent();
-            position->setSonUnite(this);
-            return true;
-        }
-        else
-            return false;
-    }*/
 
     return false;
 }
@@ -62,7 +53,7 @@ int Unite::attaquer()
         cible = position->getPrecedent();*/
 
     //On se positionne sur l'entitée à toucher, ou à portée max si on n'en trouve pas.
-    for(i=1; i<portee && !cible->estEntite() && (cible->estVide() || cible->getSonUnite()->faction == faction); i++)
+    for(i=1; i<portee && !cible->estEntite() && (cible->estVide() || cible->getSonUnite()->getFaction() == faction); i++)
     {
         /*if(faction == 1)
             cible = cible->getSuivant();
@@ -73,7 +64,7 @@ int Unite::attaquer()
             return -1;
     }
 
-    if(!cible->estVide() && cible->getSonUnite()->faction != faction)
+    if(!cible->estVide() && cible->getSonUnite()->getFaction() != faction)
     {
         issue = cible->getSonUnite()->recevoirDegats(this->pa);
         if(issue>0)

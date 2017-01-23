@@ -1,8 +1,11 @@
 #ifndef CHATEAU_H
 #define CHATEAU_H
 
+#include <iostream>
 #include "Case.h"
 #include "Entite.h"
+
+using namespace std;
 
 class Chateau : virtual public Case, virtual public Entite
 {
@@ -12,8 +15,9 @@ class Chateau : virtual public Case, virtual public Entite
         bool estFranchissable();
         bool estEntite();
         int recevoirDegats(int degats);
+        bool estDetruit();
+        string str();
     protected:
-        int recevoirDegats(int degats);
     private:
 };
 

@@ -10,6 +10,7 @@ class Terrain : virtual public Case
         virtual ~Terrain();
         bool estFranchissable();
         bool estEntite();
+        string str();
     protected:
     private:
 };

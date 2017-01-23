@@ -1,6 +1,6 @@
 #include "Terrain.h"
 
-Terrain::Terrain(Case* suivant, Case* precedent) : Case(Case* suivant, Case* precedent)
+Terrain::Terrain(Case* suivant, Case* precedent) : Case(suivant, precedent)
 {
     //ctor
 }
@@ -19,4 +19,9 @@ bool Terrain::estFranchissable()
 bool Terrain::estEntite()
 {
 	return false;
+}
+
+string Terrain::str()
+{
+	return "___";
 }

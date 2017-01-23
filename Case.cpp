@@ -2,7 +2,7 @@
 
 Case::Case(Case* suivant_, Case* precedent_) : sonUnite(nullptr), suivant(suivant_), precedent(precedent_)/*, estEntite(estEntite_)*/
 {
-	precedent->setSuivant(this);
+	//precedent->setSuivant(this);
 }
 
 Case::~Case()
@@ -10,14 +10,14 @@ Case::~Case()
     //dtor
 }
 
-void Case::setSuivant(Case * p)
+void Case::setSuivant(Case* p)
 {
 	suivant = p;
 }
 
 bool Case::estVide()
 {
-	return (sonUnite != nullptr);
+	return (sonUnite == nullptr);
 }
 
 Case* Case::getSuivant(int faction)

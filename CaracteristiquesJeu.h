@@ -9,6 +9,8 @@
 #define CARACTERISTIQUESJEU_H_
 
 #include "Configuration.h"
+#include <iostream>
+#include <sstream>
 
 using namespace std;
 

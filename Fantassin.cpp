@@ -1,7 +1,7 @@
 #include "Fantassin.h"
 
 
-Fantassin::Fantassin(Case* position_, int faction_) : Unite(position_, CaracteristiqueJeu::prixFantassin(), 1, faction_, CaracteristiqueJeu::paFantassin(), CaracteristiqueJeu::pvFantassin())
+Fantassin::Fantassin(Case* position_, Joueur* monMaitre_, int faction_) : Unite(position_, monMaitre_, CaracteristiqueJeu::prixFantassin(), 1, faction_, CaracteristiqueJeu::paFantassin(), CaracteristiqueJeu::pvFantassin())
 {
     aAttaque = false;
 }
@@ -42,5 +42,10 @@ int Fantassin::action3()
             return 0;
         else return issue;
     }
+}
+
+string Fantassin::str()
+{
+	return "f";
 }
 

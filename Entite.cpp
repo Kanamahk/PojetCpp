@@ -7,11 +7,22 @@
 
 #include "Entite.h"
 
-Entite::Entite(int pv_, int faction_) : pv(pv_), faction(faction_)
+Entite::Entite(/*int pv_, int faction_*/) : pv(0), faction(0)
 {
 }
 
 Entite::~Entite()
 {
 
+}
+
+int Entite::getPv()
+{
+	return pv;
+}
+
+
+int Entite::getFaction()
+{
+	return faction;
 }

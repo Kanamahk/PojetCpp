@@ -1,7 +1,7 @@
 #include "Archer.h"
 
 
-Archer::Archer(Case* position_, int faction_) : Unite(position, CaracteristiqueJeu::prixArcher(), 3, faction_, CaracteristiqueJeu::paArcher(), CaracteristiqueJeu::pvArcher())
+Archer::Archer(Case* position_, Joueur* monMaitre_, int faction_) : Unite(position, monMaitre_, CaracteristiqueJeu::prixArcher(), 3, faction_, CaracteristiqueJeu::paArcher(), CaracteristiqueJeu::pvArcher())
 {
     //ctor
 }
@@ -25,4 +25,10 @@ int Archer::action2()
 int Archer::action3()
 {
     return -1;
+}
+
+
+string Archer::str()
+{
+	return "a";
 }

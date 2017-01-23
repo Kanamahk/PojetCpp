@@ -53,7 +53,7 @@ string CaracteristiqueJeu::nomFichier()
 
 int CaracteristiqueJeu::tailleAireDeJeu()
 {
-	if(probleme || !estStrictementEntre(0, 50, taj))
+	if(probleme || !estStrictementEntre(5, 50, taj))
 		return 12;
 	return taj;
 }

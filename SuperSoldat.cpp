@@ -1,6 +1,6 @@
 #include "SuperSoldat.h"
 
-SuperSoldat::SuperSoldat(Case* position_, int faction_) : Unite(position, CaracteristiqueJeu::prixFantassin()/2, 3, faction_, CaracteristiqueJeu::paFantassin(), CaracteristiqueJeu::pvFantassin())
+SuperSoldat::SuperSoldat(Case* position_, Joueur* monMaitre_, int faction_) : Unite(position, monMaitre_, CaracteristiqueJeu::prixFantassin()/2, 3, faction_, CaracteristiqueJeu::paFantassin(), CaracteristiqueJeu::pvFantassin())
 {
     //ctor
 }
@@ -25,4 +25,9 @@ int SuperSoldat::action2()
 int SuperSoldat::action3()
 {
     return attaquer();
+}
+
+string SuperSoldat::str()
+{
+	return "s";
 }

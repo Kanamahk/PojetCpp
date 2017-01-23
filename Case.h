@@ -11,6 +11,7 @@ class Case
         Case(Case* suivant, Case* precedent);
         virtual ~Case();
         bool estVide();
+        void setSuivant(Case * p);
         Case* getSuivant(int faction);
         Case* getPrecedent(int faction);
         void setSonUnite(Unite * u);
@@ -18,13 +19,13 @@ class Case
         virtual int recevoirDegats(int degats); //renvoie une éventuelle récompense pour la destruction.
         virtual bool estFranchissable() = 0;
         virtual bool estEntite() = 0;
+        virtual string str() = 0;
     protected :
         Unite* sonUnite;
 		Case* suivant;
 		Case* precedent;
 		//bool estEntite;
     private :
-		void setSuivant(Case * p);
 };
 
 #endif // CASE_H
